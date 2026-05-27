@@ -62,63 +62,7 @@
             }
         }
     </script>
-    <script>
-        // Auto-advance trust slider every 5 seconds in a continuous loop
-        document.addEventListener('DOMContentLoaded', () => {
-            const slider = document.getElementById('trust-slider');
-            if (!slider) return;
-            const slides = Array.from(slider.children);
-            if (!slides.length) return;
-            let idx = 0;
-            let autoId = null;
-
-            function scrollToIndex(i) {
-                const slide = slides[i];
-                if (!slide) return;
-                // center the slide in view when possible
-                const left = slide.offsetLeft - slider.offsetLeft - Math.max(0, (slider.clientWidth - slide.clientWidth) / 2);
-                slider.scrollTo({ left, behavior: 'smooth' });
-            }
-
-            function startAuto() {
-                stopAuto();
-                autoId = setInterval(() => {
-                    idx = (idx + 1) % slides.length;
-                    scrollToIndex(idx);
-                }, 5000);
-            }
-
-            function stopAuto() {
-                if (autoId) { clearInterval(autoId); autoId = null; }
-            }
-
-            // pause/resume on hover & focus
-            slider.addEventListener('mouseenter', stopAuto);
-            slider.addEventListener('mouseleave', startAuto);
-            slider.addEventListener('focusin', stopAuto);
-            slider.addEventListener('focusout', startAuto);
-
-            // sync idx when user manually scrolls (debounced)
-            let scrollTimer = null;
-            slider.addEventListener('scroll', () => {
-                if (scrollTimer) clearTimeout(scrollTimer);
-                scrollTimer = setTimeout(() => {
-                    const center = slider.scrollLeft + slider.clientWidth / 2;
-                    let nearest = 0; let nearestDist = Infinity;
-                    slides.forEach((s, i) => {
-                        const sCenter = s.offsetLeft + s.clientWidth / 2;
-                        const dist = Math.abs(sCenter - center);
-                        if (dist < nearestDist) { nearestDist = dist; nearest = i; }
-                    });
-                    idx = nearest;
-                }, 120);
-            });
-
-            // initialize
-            scrollToIndex(idx);
-            startAuto();
-        });
-    </script>
+    <!-- Removed old auto-advance JS for trust slider. Replaced with CSS marquee below. -->
     <style>
         /* Mockup bottom-nav adjustments: increase horizontal spacing between items */
         .mock-bottom-nav { padding: 0.45rem; gap: 0.85rem; display:flex; justify-content:space-between; align-items:center; }
@@ -176,9 +120,24 @@
         @media (min-width: 640px) { .logo { height: 96px; } }
         @media (min-width: 1024px) { .logo { height: 120px; } }
 
-        /* Trust slider scrollbar hidden */
+        /* Trust slider scrollbar hidden (legacy selector left for compatibility) */
         #trust-slider { -ms-overflow-style: none; scrollbar-width: none; }
         #trust-slider::-webkit-scrollbar { display: none; }
+
+        /* Featured static image (30.jpg) responsiveness: scale from mobile → desktop */
+        .static-feature img { display:block; width: clamp(160px, 48vw, 760px); height: auto; }
+        @media (max-width: 420px) { .static-feature img { width: clamp(120px, 72vw, 360px); } }
+
+        /* Continuous marquee for the other slides */
+        .marquee { overflow: hidden; width: 100%; }
+        .marquee-track { display: flex; gap: 1rem; align-items: center; width: max-content; animation: marquee 18s linear infinite; }
+        .marquee-track:hover, .marquee-track:focus-within { animation-play-state: paused; }
+        .marq-item { flex: 0 0 16rem; display: flex; align-items: center; justify-content: center; }
+        .marq-item img { max-height: 10rem; width: auto; height: auto; }
+        @media (min-width: 640px) { .marq-item { flex: 0 0 18rem; } .marq-item img { max-height: 11rem; } }
+        @media (min-width: 1024px) { .marq-item { flex: 0 0 20rem; } .marq-item img { max-height: 12rem; } }
+
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
     </style>
 </head>
 <body class="text-slate-600 antialiased selection:bg-brand-cyan selection:text-white">
@@ -194,7 +153,7 @@
             </a>
 
                 <a href="#ticket" class="btn-shine bg-brand-cyan hover:bg-brand-turquoise text-white px-4 sm:px-6 py-3.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-glow hover:-translate-y-0.5 shrink-0">
-                <span class="hidden sm:inline">Join Network</span><span class="sm:hidden">Join</span>
+                <span class="hidden sm:inline">Register Now</span><span class="sm:hidden">Register</span>
             </a>
         </div>
     </header>
@@ -356,7 +315,7 @@
                             <!-- Large promotional/content card (auto height, small bottom margin) -->
                             <div class="bg-white border-2 border-brand-cyan/30 rounded-xl p-4 flex-none mb-4">
                                 <h4 class="text-lg font-extrabold text-rose-400 text-center mb-2">Anaxee का नया Project</h4>
-                                <p class="text-sm text-slate-600 text-center">Anaxee लाया है घर बैठे कमाई का मौका! Seats limited — apply now.</p>
+                                <p class="text-sm text-slate-600 text-center">Anaxee लाया है घर बैठे कमाई का मौका!</p>
                             </div>
 
                             <div class="mt-auto">
@@ -390,25 +349,32 @@
             </div>
         </section>
 
-        <!-- 3.5. Trust Slides (auto-scroll every 5s) -->
+        <!-- 3.5. Trust Slides: centered static feature (30.jpg) + continuous marquee for 31-34 -->
         <section class="py-8 bg-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="overflow-hidden rounded-lg">
-                    <div id="trust-slider" class="flex gap-4 snap-x snap-mandatory overflow-x-auto scroll-smooth py-4 px-2" aria-label="Trust slides">
-                        <div class="snap-center flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white rounded-lg border p-3 flex items-center justify-center">
-                            <img src="./30.jpg" alt="slide 30" class="object-contain max-h-40">
+                    <div class="flex flex-col items-center gap-6 py-6">
+                        <!-- Centered static featured image -->
+                        <div class="w-full flex justify-center">
+                            <div class="bg-white rounded-lg border p-4 flex items-center justify-center static-feature">
+                                <img src="./30.jpg" alt="featured 30" class="object-contain w-[min(60vw,320px)] sm:w-[min(50vw,360px)] md:w-[min(36vw,420px)]">
+                            </div>
                         </div>
-                        <div class="snap-center flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white rounded-lg border p-3 flex items-center justify-center">
-                            <img src="./31.jpg" alt="slide 31" class="object-contain max-h-40">
-                        </div>
-                        <div class="snap-center flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white rounded-lg border p-3 flex items-center justify-center">
-                            <img src="./32.jpg" alt="slide 32" class="object-contain max-h-40">
-                        </div>
-                        <div class="snap-center flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white rounded-lg border p-3 flex items-center justify-center">
-                            <img src="./33.jpg" alt="slide 33" class="object-contain max-h-40">
-                        </div>
-                        <div class="snap-center flex-shrink-0 w-64 sm:w-72 md:w-80 bg-white rounded-lg border p-3 flex items-center justify-center">
-                            <img src="./34.jpg" alt="slide 34" class="object-contain max-h-40">
+
+                        <!-- Continuous marquee for the remaining slides -->
+                        <div class="w-full marquee" aria-label="continuous carousel">
+                            <div class="marquee-track">
+                                <!-- original set -->
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./31.jpg" alt="31" class="object-contain max-h-40"></div> </div>
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./32.jpg" alt="32" class="object-contain max-h-40"></div> </div>
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./33.jpg" alt="33" class="object-contain max-h-40"></div> </div>
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./34.jpg" alt="34" class="object-contain max-h-40"></div> </div>
+                                <!-- duplicated set for seamless loop -->
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./31.jpg" alt="31" class="object-contain max-h-40"></div> </div>
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./32.jpg" alt="32" class="object-contain max-h-40"></div> </div>
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./33.jpg" alt="33" class="object-contain max-h-40"></div> </div>
+                                <div class="marq-item"> <div class="bg-white rounded-lg border p-3 flex items-center justify-center"><img src="./34.jpg" alt="34" class="object-contain max-h-40"></div> </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -507,7 +473,7 @@
                     <div class="inline-flex items-center gap-3 bg-white text-brand-deep text-xs font-bold px-5 py-2.5 rounded-full uppercase tracking-widest mb-8 shadow-sm">
                         <span class="w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse"></span> First 500 Users Only
                     </div>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.2] mb-6">हमारा ₹2,000 <br>TOOLKIT <span class="text-brand-cyan">मुफ्त</span> पाएं</h2>
+                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-black leading-[1.2] mb-6">हमारा ₹2,000 <br>Digital Kit <span class="text-brand-cyan">मुफ्त</span> पाएं</h2>
                     <p class="text-slate-300 text-xl leading-relaxed md:leading-loose tracking-wide">Registration करते ही आपको earning शुरू करने के लिए ज़रूरी सारी जानकारी और सामग्री मिल जाएगी।Registration करते ही आपको earning शुरू करने के लिए ज़रूरी सारी जानकारी और सामग्री मिल जाएगी।कोई experience की आवश्यकता नहीं है।</p>
                 </div>
                 
@@ -662,13 +628,12 @@
                                             <span>Base Access</span><span class="font-bold">₹299</span>
                                         </div>
                                     <div class="flex justify-between text-lg border-b border-white/20 pb-4">
-                                        <span>Creator Toolkit</span><span class="text-brand-deep font-bold bg-white px-3 py-1 rounded text-sm uppercase tracking-widest animate-pulse">FREE</span>
+                                        <span>Digital Kit</span><span class="text-brand-deep font-bold bg-white px-3 py-1 rounded text-sm uppercase tracking-widest animate-pulse">FREE</span>
                                     </div>
                                 </div>
                             </div>
                             
                                 <div class="mt-auto">
-                                <p class="text-xs uppercase tracking-widest font-bold opacity-80 mb-2">आज की कुल देन</p>
                                 <div class="text-4xl sm:text-5xl md:text-7xl font-black tracking-tighter">₹299</div>
                             </div>
                         </div>
