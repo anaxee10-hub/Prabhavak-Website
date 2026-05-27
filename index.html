@@ -171,10 +171,10 @@
             mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent 100%);
         }
 
-        /* Fixed responsive logo sizing */
-        .logo { height: 48px; width: auto; max-width: 220px; }
-        @media (min-width: 640px) { .logo { height: 56px; } }
-        @media (min-width: 1024px) { .logo { height: 72px; } }
+        /* Fixed responsive logo sizing (larger as requested) */
+        .logo { height: 72px; width: auto; max-width: 320px; }
+        @media (min-width: 640px) { .logo { height: 96px; } }
+        @media (min-width: 1024px) { .logo { height: 120px; } }
 
         /* Trust slider scrollbar hidden */
         #trust-slider { -ms-overflow-style: none; scrollbar-width: none; }
@@ -185,12 +185,12 @@
 
     <!-- 1. Header with Solo Anaxee Logo -->
     <header class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 border-b border-slate-200 shadow-sm transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-24 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-28 lg:h-32 flex items-center justify-between">
             
             <!-- Logo - Using explicit sizing so it is 100% visible -->
                 <a href="https://anaxee.com/" target="_blank" class="flex items-center hover:opacity-80 transition-opacity">
                 <!-- Using project images from root: Anaxee Black Logo for light header -->
-                <img src="./Anaxee Black Logo.png" alt="Anaxee Logo" class="logo object-contain max-w-[150px]" loading="eager">
+                <img src="./Anaxee Black Logo.png" alt="Anaxee Logo" class="logo object-contain max-w-[280px] sm:max-w-[320px]" loading="eager">
             </a>
 
                 <a href="#ticket" class="btn-shine bg-brand-cyan hover:bg-brand-turquoise text-white px-4 sm:px-6 py-3.5 rounded-full text-sm font-bold transition-all flex items-center gap-2 shadow-glow hover:-translate-y-0.5 shrink-0">
