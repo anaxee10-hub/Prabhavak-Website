@@ -136,15 +136,6 @@
         .animate-float-slow {
             animation: float-slow 6s ease-in-out infinite;
         }
-
-        /* Custom sequential beam travel stroke animation [1, 2] */
-        @keyframes beam-travel {
-            0% { stroke-dashoffset: 150; }
-            50%, 100% { stroke-dashoffset: 0; }
-        }
-        .animate-beam {
-            animation: beam-travel 5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
-        }
     </style>
 </head>
 <body class="text-slate-700 antialiased font-sans relative">
@@ -218,7 +209,7 @@
                         <div class="absolute inset-0 z-30 pointer-events-none overflow-visible w-full h-full">
 
                             <!-- 1. WhatsApp (Bottom-Left) -->
-                            <div class="absolute bottom-[18%] left-[2%] sm:left-[8%] lg:left-[5%] pointer-events-auto anim-float-wa social-3d-card">
+                            <div class="absolute bottom-[30%] left-[2%] sm:left-[8%] lg:left-[5%] pointer-events-auto anim-float-wa social-3d-card">
                                 <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl shadow-[0_10px_20 text-emerald-500 bg-emerald-50, _inset_0_-4px_8px_rgba(0,0,0,0.2)] border-b-4 border-green-700">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
@@ -361,137 +352,55 @@
         </section>
 
         <!-- ================= SECTION 3.1: WHY US? REACH METRIC CANVAS ================= -->
-        <section id="our-reach" class="py-20 bg-white border-b border-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid lg:grid-cols-12 gap-12 items-center">
-                    
-                    <!-- Left: Reach Analytics Content -->
-                    <div class="lg:col-span-5 space-y-6 text-center lg:text-left">
-                        <span class="inline-flex items-center gap-2 bg-brand-cyan/10 text-brand-cyan px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
-                            <i class="fa-solid fa-earth-asia"></i> National Network Strength
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl font-black text-brand-deep leading-relaxed">भारत के कोने-कोने में फैले प्रभावक</h2>
-                        <p class="text-slate-500 leading-relaxed text-sm sm:text-base">
-                            Anaxee का डिजिटल इंफ्रास्ट्रक्चर पूरे देश को कवर करता है। सुदूर गाँवों से लेकर महानगरों तक, हमारे प्रभावक स्थानीय स्तर पर ब्रांड प्रचार को नई गति दे रहे हैं।
-                        </p>
+        <!-- Content restructured to position standard metrics centered above the cinematic full-bleed video [1] -->
+        <section id="our-reach" class="pt-6 pb-0 bg-brand-surface border-b border-slate-100 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 text-center space-y-6 mb-12">
+                <span class="inline-flex items-center gap-2 bg-brand-cyan/10 text-brand-cyan px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                    <i class="fa-solid fa-earth-asia"></i> National Network Strength
+                </span>
+                <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-brand-deep leading-relaxed">भारत के कोने-कोने में फैले प्रभावक</h2>
+                <p class="text-slate-500 leading-relaxed text-sm sm:text-base max-w-2xl mx-auto">
+                    Anaxee का डिजिटल इंफ्रास्ट्रक्चर पूरे देश को कवर करता है। सुदूर गाँवों से लेकर महानगरों तक, हमारे प्रभावक स्थानीय स्तर पर ब्रांड प्रचार को नई गति दे रहे हैं।
+                </p>
 
-                        <!-- REACH METRICS CARDS WITH ACTIVE COUNT-UP HOVER ANIMATION -->
-                        <div class="grid grid-cols-2 gap-4 pt-4">
-                            <div class="bg-brand-surface border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
-                                <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="40000">0</span>+</p>
-                                <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">Digital Runners</p>
-                            </div>
-                            <div class="bg-brand-surface border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
-                                <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="540">0</span>+</p>
-                                <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">Districts Covered</p>
-                            </div>
-                            <div class="bg-brand-surface border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
-                                <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="26">0</span></p>
-                                <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">States Active</p>
-                            </div>
-                            <div class="bg-brand-surface border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
-                                <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="11000">0</span>+</p>
-                                <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">Active Pincodes</p>
-                            </div>
-                        </div>
+                <!-- REACH METRICS CARDS WITH ACTIVE COUNT-UP HOVER ANIMATION (Centered Layout) [1] -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto pt-4">
+                    <div class="bg-white border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
+                        <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="40000">0</span>+</p>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">Digital Runners</p>
                     </div>
-
-                    <!-- Right: Premium Holographic Map Showcase -->
-                    <!-- Map adjusted to optimal responsive size [1] -->
-                    <div class="lg:col-span-7 relative flex items-center justify-center p-4">
-                        <div class="relative w-full max-w-[320px] sm:max-w-[380px] lg:max-w-[440px] aspect-[1/1.1] flex items-center justify-center overflow-visible">
-                            
-                            <!-- Ambient pulsing backdrop cyan glow behind the map silhouette -->
-                            <div class="absolute w-[80%] h-[80%] bg-brand-cyan/10 blur-[60px] rounded-full z-0 runner-shadow-pulse"></div>
-                            
-                            <!-- Solid static turquoise India map PNG you shared - rendered with absolute visibility -->
-                            <img src="Indian Map.png" alt="India Reach Map" class="absolute inset-0 w-full h-full object-contain select-none pointer-events-none z-10" />
-                            
-                            <!-- ================= GEOGRAPHICALLY SYNCHRONIZED VECTOR NETWORK ANCHORS ================= -->
-                            <!-- Direct inline SVG overlays synchronized perfectly across regional locations [1, 2] -->
-                            <svg viewBox="0 0 400 440" class="absolute inset-0 w-full h-full z-20 overflow-visible" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                
-                                <!-- Permanent connection path dashed overlays representing network channels [1, 2] -->
-                                <line x1="135" y1="205" x2="135" y2="55" stroke="#031E29" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.35" />
-                                <line x1="135" y1="205" x2="90" y2="140" stroke="#031E29" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.35" />
-                                <line x1="135" y1="205" x2="45" y2="185" stroke="#031E29" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.35" />
-                                <line x1="135" y1="205" x2="72" y2="238" stroke="#031E29" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.35" />
-                                <line x1="135" y1="205" x2="116" y2="396" stroke="#031E29" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.35" />
-                                <line x1="135" y1="205" x2="232" y2="202" stroke="#031E29" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.35" />
-                                <line x1="135" y1="205" x2="328" y2="150" stroke="#031E29" stroke-width="1.2" stroke-dasharray="2 3" opacity="0.35" />
-
-                                <!-- ================= ANIMATED GEOGRAPHIC BEAMS (RADAR TRACES) ================= -->
-                                <!-- Uses CSS dash offset loops [1, 2] with staggered delays to simulate expanding network waves [1, 2] -->
-                                <path d="M135 205 L135 55" stroke="#031E29" stroke-width="1.8" stroke-dasharray="35 115" stroke-dashoffset="150" class="animate-beam" style="animation-delay: 0s;" />
-                                <path d="M135 205 L90 140" stroke="#031E29" stroke-width="1.8" stroke-dasharray="35 115" stroke-dashoffset="150" class="animate-beam" style="animation-delay: 0.6s;" />
-                                <path d="M135 205 L45 185" stroke="#031E29" stroke-width="1.8" stroke-dasharray="35 115" stroke-dashoffset="150" class="animate-beam" style="animation-delay: 1.2s;" />
-                                <path d="M135 205 L72 238" stroke="#031E29" stroke-width="1.8" stroke-dasharray="35 115" stroke-dashoffset="150" class="animate-beam" style="animation-delay: 1.8s;" />
-                                <path d="M135 205 L116 396" stroke="#031E29" stroke-width="1.8" stroke-dasharray="35 115" stroke-dashoffset="150" class="animate-beam" style="animation-delay: 2.4s;" />
-                                <path d="M135 205 L232 202" stroke="#031E29" stroke-width="1.8" stroke-dasharray="35 115" stroke-dashoffset="150" class="animate-beam" style="animation-delay: 3.0s;" />
-                                <path d="M135 205 L328 150" stroke="#031E29" stroke-width="1.8" stroke-dasharray="35 115" stroke-dashoffset="150" class="animate-beam" style="animation-delay: 3.6s;" />
-
-                                <!-- ================= INDORE HQ SOURCE EPICENTER ================= -->
-                                <circle cx="135" cy="205" r="5" fill="#031E29" />
-                                <circle cx="135" cy="205" r="5" fill="none" stroke="#031E29" stroke-width="1.2" opacity="0.8">
-                                    <animate attributeName="r" values="5;22" dur="3s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="3s" repeatCount="indefinite" />
-                                </circle>
-
-                                <!-- ================= STAGGERED HARMONIOUS RIPPLE HUBS ================= -->
-                                <!-- Kashmir Hub (Signal arrivals around 1.0s) [1, 2] -->
-                                <circle cx="135" cy="55" r="2.5" fill="#031E29" />
-                                <circle cx="135" cy="55" r="2.5" fill="none" stroke="#031E29" stroke-width="0.8">
-                                    <animate attributeName="r" values="2.5;14" dur="5s" begin="1.0s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="5s" begin="1.0s" repeatCount="indefinite" />
-                                </circle>
-
-                                <!-- Rajasthan Hub (Signal arrivals around 1.6s) [1, 2] -->
-                                <circle cx="90" cy="140" r="2.5" fill="#031E29" />
-                                <circle cx="90" cy="140" r="2.5" fill="none" stroke="#031E29" stroke-width="0.8">
-                                    <animate attributeName="r" values="2.5;14" dur="5s" begin="1.6s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="5s" begin="1.6s" repeatCount="indefinite" />
-                                </circle>
-
-                                <!-- Gujarat Hub (Signal arrivals around 2.2s) [1, 2] -->
-                                <circle cx="45" cy="185" r="2.5" fill="#031E29" />
-                                <circle cx="45" cy="185" r="2.5" fill="none" stroke="#031E29" stroke-width="0.8">
-                                    <animate attributeName="r" values="2.5;14" dur="5s" begin="2.2s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="5s" begin="2.2s" repeatCount="indefinite" />
-                                </circle>
-
-                                <!-- Mumbai Hub (Signal arrivals around 2.8s) [1, 2] -->
-                                <circle cx="72" cy="238" r="2.5" fill="#031E29" />
-                                <circle cx="72" cy="238" r="2.5" fill="none" stroke="#031E29" stroke-width="0.8">
-                                    <animate attributeName="r" values="2.5;14" dur="5s" begin="2.8s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="5s" begin="2.8s" repeatCount="indefinite" />
-                                </circle>
-
-                                <!-- South Tip Hub (Signal arrivals around 3.4s) [1, 2] -->
-                                <circle cx="116" cy="396" r="2.5" fill="#031E29" />
-                                <circle cx="116" cy="396" r="2.5" fill="none" stroke="#031E29" stroke-width="0.8">
-                                    <animate attributeName="r" values="2.5;14" dur="5s" begin="3.4s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="5s" begin="3.4s" repeatCount="indefinite" />
-                                </circle>
-
-                                <!-- Bengal Hub (Signal arrivals around 4.0s) [1, 2] -->
-                                <circle cx="232" cy="202" r="2.5" fill="#031E29" />
-                                <circle cx="232" cy="202" r="2.5" fill="none" stroke="#031E29" stroke-width="0.8">
-                                    <animate attributeName="r" values="2.5;14" dur="5s" begin="4.0s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="5s" begin="4.0s" repeatCount="indefinite" />
-                                </circle>
-
-                                <!-- Northeast Hub (Signal arrivals around 4.6s) [1, 2] -->
-                                <circle cx="328" cy="150" r="2.5" fill="#031E29" />
-                                <circle cx="328" cy="150" r="2.5" fill="none" stroke="#031E29" stroke-width="0.8">
-                                    <animate attributeName="r" values="2.5;14" dur="5s" begin="4.6s" repeatCount="indefinite" />
-                                    <animate attributeName="opacity" values="0.8;0" dur="5s" begin="4.6s" repeatCount="indefinite" />
-                                </circle>
-
-                            </svg>
-                        </div>
+                    <div class="bg-white border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
+                        <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="540">0</span>+</p>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">Districts Covered</p>
                     </div>
-
+                    <div class="bg-white border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
+                        <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="26">0</span></p>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">States Active</p>
+                    </div>
+                    <div class="bg-white border border-slate-200/50 rounded-xl p-4 text-center hover:shadow-glow hover:border-brand-cyan/40 hover:-translate-y-1 transition-all duration-300">
+                        <p class="text-3xl font-black text-brand-cyan"><span class="counter" data-target="11000">0</span>+</p>
+                        <p class="text-[10px] uppercase font-bold text-slate-400 tracking-wider mt-1">Active Pincodes</p>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Full-Bleed Widescreen Video Section spanning edge-to-edge [1] -->
+            <!-- Adjusted layout constraints horizontally (w-screen left/right offsets) to force edge-to-edge rendering [1] -->
+            <div class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] aspect-[16/10] sm:aspect-[21/9] min-h-[280px] sm:min-h-[420px] overflow-hidden bg-slate-950">
+                <!-- Glowing ambient backlight -->
+                <div class="absolute w-[80%] h-[80%] bg-brand-cyan/10 blur-[60px] rounded-full z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                
+                <!-- CORS-immune standard HTML5 looped video masked beautifully at the lower baseline [1] -->
+                <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-10 select-none pointer-events-none fade-bottom-mask">
+                    <source src="Anaxee video map.mp4" type="video/mp4">
+                    <!-- Fallback placeholder represent loop state if file not present -->
+                    <div class="absolute inset-0 flex items-center justify-center bg-brand-deep text-white/40 text-xs font-bold uppercase tracking-widest gap-2">
+                        <i class="fa-solid fa-circle-play text-2xl text-brand-cyan animate-pulse"></i> real action loop
+                    </div>
+                </video>
+
+                <!-- High-fidelity vertical fading mask to smoothly transition video colors into Section 3.2 [1] -->
+                <div class="absolute bottom-0 inset-x-0 h-20 sm:h-28 bg-gradient-to-t from-brand-surface via-brand-surface/75 to-transparent z-20 pointer-events-none"></div>
             </div>
         </section>
 
@@ -516,7 +425,7 @@
                                 <img src="./30.jpg" alt="Govind Agrawal with PM Modi" class="w-full h-auto object-cover aspect-[16/10]" loading="lazy">
                             </div>
                             
-                            <!-- Relocated High-Contrast Caption block completely resolving the legibility issue [1] -->
+                            <!-- Relocated High-Contrast Caption block completely resolving the legibility issue -->
                             <div class="pt-2">
                                 <div class="flex items-center gap-2 mb-3">
                                     <span class="text-[10px] font-black uppercase tracking-wider bg-sky-50 text-brand-cyan px-2.5 py-1 rounded-full border border-sky-100/60">Startup India Recognition</span>
@@ -591,45 +500,157 @@
             </div>
 
             <!-- Double Row Marquee Wrapper -->
-            <div class="space-y-6 marquee-container select-none pointer-events-none">
+            <div class="space-y-6 marquee-container select-none">
                 
                 <!-- Row 1: Left to Right scrolling -->
                 <div class="flex overflow-hidden relative w-full h-16">
-                    <div class="flex gap-8 whitespace-nowrap animate-scroll-right">
-                        <!-- Original Partner set (custom high-end SVG style tags instead of messy image links) -->
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">UNILEVER</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">TATA GROUP</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">ITC LIMITED</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">BHARTI AIRTEL</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">HDFC BANK</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">RELIANCE RETAIL</div>
-                        <!-- Duplicated set for seamless loops -->
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">UNILEVER</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">TATA GROUP</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">ITC LIMITED</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">BHARTI AIRTEL</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">HDFC BANK</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">RELIANCE RETAIL</div>
+                    <div class="flex gap-6 whitespace-nowrap animate-scroll-right">
+                        
+                        <!-- Client 1: TTK Prestige -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/ttkprestige.com" alt="Prestige" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Prestige</span>
+                        </div>
+                        
+                        <!-- Client 2: Organic India -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/organicindia.com" alt="Organic India" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Organic India</span>
+                        </div>
+
+                        <!-- Client 3: Welspun -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/welspun.com" alt="Welspun" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Welspun</span>
+                        </div>
+
+                        <!-- Client 4: Vivo -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/vivo.com" alt="Vivo" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Vivo</span>
+                        </div>
+
+                        <!-- Client 5: AgroStar -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/agrostar.in" alt="AgroStar" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>AgroStar</span>
+                        </div>
+
+                        <!-- Client 6: DeHaat -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/agrevolution.in" alt="DeHaat" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>DeHaat</span>
+                        </div>
+
+                        <!-- Client 7: Rentomojo -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/rentomojo.com" alt="Rentomojo" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Rentomojo</span>
+                        </div>
+
+                        <!-- Client 8: Byju'S -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/byjus.com" alt="Byju's" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Byju'S</span>
+                        </div>
+
+                        <!-- Duplicate set for seamless loops -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/ttkprestige.com" alt="Prestige" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Prestige</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/organicindia.com" alt="Organic India" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Organic India</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/welspun.com" alt="Welspun" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Welspun</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/vivo.com" alt="Vivo" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Vivo</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/agrostar.in" alt="AgroStar" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>AgroStar</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/agrevolution.in" alt="DeHaat" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>DeHaat</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Row 2: Right to Left scrolling -->
                 <div class="flex overflow-hidden relative w-full h-16">
-                    <div class="flex gap-8 whitespace-nowrap animate-scroll-left">
-                        <!-- Original Partner set -->
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">ICICI BANK</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">AMAZON INDIA</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">GODREJ INDUSTRIES</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">NESTLE INDIA</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">PHONEPE</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">AMUL COOPERATIVE</div>
-                        <!-- Duplicated set for seamless loops -->
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">ICICI BANK</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">AMAZON INDIA</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">GODREJ INDUSTRIES</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">NESTLE INDIA</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">PHONEPE</div>
-                        <div class="flex items-center justify-center px-8 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider">AMUL COOPERATIVE</div>
+                    <div class="flex gap-6 whitespace-nowrap animate-scroll-left">
+                        
+                        <!-- Client 9: Colgate -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/colgate.com" alt="Colgate" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Colgate</span>
+                        </div>
+
+                        <!-- Client 10: Mahindra -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/mahindra.com" alt="Mahindra" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Mahindra</span>
+                        </div>
+
+                        <!-- Client 11: Udaan -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/udaan.com" alt="Udaan" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Udaan</span>
+                        </div>
+
+                        <!-- Client 12: Pepsi -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/pepsi.com" alt="Pepsi" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Pepsi</span>
+                        </div>
+
+                        <!-- Client 13: PharmEasy -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/pharmeasy.in" alt="PharmEasy" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>PharmEasy</span>
+                        </div>
+
+                        <!-- Client 14: Toppr -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/toppr.com" alt="Toppr" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Toppr</span>
+                        </div>
+
+                        <!-- Client 15: ReNew Power -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/renewpower.in" alt="ReNew" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>ReNew</span>
+                        </div>
+
+                        <!-- Client 16: Schaeffler -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/schaeffler.com" alt="Schaeffler" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Schaeffler</span>
+                        </div>
+
+                        <!-- Duplicate set for seamless loops -->
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/colgate.com" alt="Colgate" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Colgate</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/mahindra.com" alt="Mahindra" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Mahindra</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/udaan.com" alt="Udaan" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Udaan</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 px-6 py-3 bg-brand-surface rounded-xl border border-slate-200/40 text-brand-deep font-bold text-sm tracking-wider shadow-sm">
+                            <img src="https://logo.clearbit.com/pepsi.com" alt="Pepsi" class="h-6 w-6 object-contain filter grayscale hover:grayscale-0 transition-all duration-300" onError="this.style.display='none'">
+                            <span>Pepsi</span>
+                        </div>
                     </div>
                 </div>
 
