@@ -114,7 +114,7 @@
     <header class="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-7xl z-50 bg-white/75 backdrop-blur-lg border border-white/50 rounded-2xl shadow-island-shadow transition-all">
         <div class="px-5 sm:px-8 py-2 sm:py-2.5 flex items-center justify-between">
             
-            <!-- Left Side: Scaled-up Black Anaxee Logo -->
+            <!-- Left Side: Black Anaxee Logo -->
             <a href="https://anaxee.com/" target="_blank" class="flex items-center hover:opacity-90 transition-opacity">
                 <img src="Anaxee Black Logo.png" alt="Anaxee Logo" class="h-8 sm:h-9 lg:h-10 w-auto object-contain" loading="eager">
             </a>
@@ -143,27 +143,24 @@
                 <div class="grid lg:grid-cols-12 gap-4 sm:gap-6 lg:gap-12 items-center">
                     
                     <!-- Left Column: Copy & Value Proposition -->
-                    <!-- Changed leading to 'leading-relaxed' to give ample space for main Hindi titles [1] -->
                     <div class="lg:col-span-6 text-center lg:text-left space-y-6 z-20">
                         <div class="inline-flex items-center gap-2.5 bg-white border border-slate-200/60 px-4 py-1.5 rounded-full text-xs font-bold text-brand-deep tracking-wide shadow-sm">
                             <span class="w-2 h-2 rounded-full bg-brand-cyan animate-pulse"></span> Anaxee Digital Community
                         </div>
                         
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-brand-deep leading-relaxed tracking-tight">
-                            रोज़ सोशल मीडिया <br>पर समय बिताते हो?
-                            <span class="block mt-2 text-brand-gradient">कमाई का जरिया बनाएं!</span>
+                        <h1 class="text-brand-deep leading-relaxed tracking-tight">
+                            <!-- Adjusted the first text line to high-contrast black as requested [1] -->
+                            <span class="text-2xl sm:text-3xl lg:text-[2.1rem] font-bold text-black block italic leading-relaxed">"ये तो दिनभर मोबाइल में लगा रहता है, क्या ही कर लेगा।"</span>
+                            <span class="text-3xl sm:text-4xl lg:text-[2.65rem] font-black leading-relaxed mt-4 block text-brand-gradient">यही ताना सुनने वाले आज प्रभावक बनकर घर बैठे Extra Income कमा रहे हैं।</span>
                         </h1>
                         
-                        <p class="text-base sm:text-lg md:text-xl text-slate-500 leading-relaxed max-w-xl mx-auto lg:mx-0 font-medium">
-                            Anaxee की <strong class="text-brand-deep">Prabhavak</strong> कम्युनिटी का हिस्सा बनें। बिना किसी पूर्व अनुभव के केवल अपने स्मार्टफोन से विभिन्न ब्रांड्स का प्रचार करें और अपनी सक्रियता के अनुसार सुरक्षित साप्ताहिक आय सीधे अपने बैंक खाते में पाएं।
+                        <p class="text-lg sm:text-xl lg:text-2xl font-black text-brand-deep pt-1">
+                            प्रभावक — आखिर ये है क्या?
                         </p>
 
                         <div class="flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start pt-2">
-                            <a href="#ticket" class="btn-shine w-full sm:w-auto bg-brand-deep text-white px-8 py-4 rounded-xl text-md font-bold hover:bg-slate-800 shadow-lg hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2">
-                                शुरू करें / Apply Now <i class="fa-solid fa-arrow-right text-brand-cyan"></i>
-                            </a>
-                            <a href="#who-can-be" class="w-full sm:w-auto border border-slate-200 hover:border-slate-300 text-slate-600 px-8 py-4 rounded-xl text-md font-bold transition-all text-center">
-                                विस्तार से समझें
+                            <a href="#who-can-be" id="btn-scroll-down" class="btn-shine w-full sm:w-auto bg-brand-deep text-white px-8 py-4 rounded-xl text-md font-bold hover:bg-slate-800 shadow-lg hover:-translate-y-0.5 transition-all text-center flex items-center justify-center gap-2">
+                                विस्तार से समझें <i class="fa-solid fa-arrow-down text-brand-cyan"></i>
                             </a>
                         </div>
                     </div>
@@ -184,7 +181,7 @@
 
                             <!-- 1. WhatsApp (Bottom-Left) -->
                             <div class="absolute bottom-[30%] left-[2%] sm:left-[8%] lg:left-[5%] pointer-events-auto anim-float-wa social-3d-card">
-                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl shadow-[0_10px_20px_rgba(16,185,129,0.35),_inset_0_-4px_8px_rgba(0,0,0,0.2)] border-b-4 border-green-700">
+                                <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl shadow-[0_10px_20 text-emerald-500 bg-emerald-50, _inset_0_-4px_8px_rgba(0,0,0,0.2)] border-b-4 border-green-700">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
                             </div>
@@ -235,7 +232,6 @@
         <section id="who-can-be" class="pt-6 pb-20 lg:py-20 bg-brand-surface border-b border-slate-100 relative">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 
-                <!-- Added 'leading-relaxed' to the primary Hindi H2 to prevent characters from sticking together vertically [1] -->
                 <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
                     <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest bg-brand-cyan/15 px-4 py-1.5 rounded-full">ये प्रभावक प्रोग्राम किसके लिए है?</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-brand-deep leading-relaxed">अगर इनमें से कोई एक बात भी आपकी ज़िंदगी से मेल खाती है - तो आप सही जगह पर हैं।</h2>
@@ -252,9 +248,8 @@
                                 <div class="w-12 h-12 bg-rose-50 rounded-xl flex items-center justify-center text-rose-500 text-lg shrink-0">
                                     <i class="fa-solid fa-wallet"></i>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-black text-brand-deep">एक income काफी नहीं पड़ती</h3>
+                                <h3 class="text-lg sm:text-xl font-black text-brand-deep leading-relaxed">एक income काफी नहीं पड़ती</h3>
                             </div>
-                            <!-- Styled with 'leading-relaxed' for Devanagari paragraph line spacing safety -->
                             <p class="text-slate-500 text-sm sm:text-base leading-relaxed pl-2 sm:pl-16">
                                 आपकी पहले से नौकरी या दुकान है - पर महीने के आखिर में पैसा कम पड़ जाता है। एक extra income चाहिए, वह भी वर्तमान काम छोड़े बिना।
                             </p>
@@ -268,7 +263,7 @@
                                 <div class="w-12 h-12 bg-violet-50 rounded-xl flex items-center justify-center text-violet-500 text-lg shrink-0">
                                     <i class="fa-solid fa-graduation-cap"></i>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-black text-brand-deep">पढ़ाई के साथ कुछ कमाना है</h3>
+                                <h3 class="text-lg sm:text-xl font-black text-brand-deep leading-relaxed">पढ़ाई के साथ कुछ कमाना है</h3>
                             </div>
                             <p class="text-slate-500 text-sm leading-relaxed">
                                 आप student हैं। Pocket money के लिए घरवालों के आगे हाथ फैलाना अच्छा नहीं लगता - पर part-time job पढ़ाई का time खा जाती है।
@@ -283,7 +278,7 @@
                                 <div class="w-12 h-12 bg-teal-50 rounded-xl flex items-center justify-center text-brand-turquoise text-lg shrink-0">
                                     <i class="fa-solid fa-map-location-dot"></i>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-black text-brand-deep">गाँव/छोटे शहर में मौके नहीं</h3>
+                                <h3 class="text-lg sm:text-xl font-black text-brand-deep leading-relaxed">गाँव/छोटे शहर में मौके नहीं</h3>
                             </div>
                             <p class="text-slate-500 text-sm leading-relaxed">
                                 आप Tier 2/3 शहर या गाँव से हैं। बड़े शहर जाकर ही "कुछ बनेगा" - ये सोच आपको रोक रही है।
@@ -298,7 +293,7 @@
                                 <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center text-amber-500 text-lg shrink-0">
                                     <i class="fa-solid fa-mobile-retro"></i>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-black text-brand-deep">"घर बैठे क्या ही कर लेगा?"</h3>
+                                <h3 class="text-lg sm:text-xl font-black text-brand-deep leading-relaxed">"घर बैठे क्या ही कर लेगा?"</h3>
                             </div>
                             <p class="text-slate-500 text-sm leading-relaxed">
                                 आप दिनभर मेहनत करने को तैयार हैं, पर कोई proper मौका नहीं मिल रहा। और घरवाले-समाज वाले ये कहकर ताना मारते हैं कि "मोबाइल चलाने के अलावा कुछ नहीं आता।"
@@ -313,7 +308,7 @@
                                 <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center text-indigo-500 text-lg shrink-0">
                                     <i class="fa-solid fa-house-chimney-user"></i>
                                 </div>
-                                <h3 class="text-lg sm:text-xl font-black text-brand-deep">घर की ज़िम्मेदारी</h3>
+                                <h3 class="text-lg sm:text-xl font-black text-brand-deep leading-relaxed">घर की ज़िम्मेदारी</h3>
                             </div>
                             <p class="text-slate-500 text-sm leading-relaxed">
                                 आप गृहिणी हैं। हुनर है, मेहनत करने का दिल है - पर घर, बच्चे, ज़िम्मेदारियों की वजह से बाहर 9-to-5 job मुमकिन नहीं।
@@ -327,5 +322,46 @@
         </section>
     </main>
 
+    <!-- Custom mathematical scroll easing script to bypass clunky native behavior [1] -->
+    <script>
+        document.getElementById('btn-scroll-down').addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetSelector = this.getAttribute('href');
+            const targetElement = document.querySelector(targetSelector);
+            if (!targetElement) return;
+
+            // Calculate exact landing point offset by 110px to account for floating island header [1]
+            const offset = 110;
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+            const startPosition = window.pageYOffset;
+            const distance = targetPosition - startPosition;
+            const duration = 1200; // Duration set to 1.2 seconds for an elegant, butter-smooth slide [1]
+            let startTime = null;
+
+            // Quadratic ease-in-out curve for smooth deceleration [1]
+            function easeInOutQuad(t, b, c, d) {
+                t /= d / 2;
+                if (t < 1) return c / 2 * t * t + b;
+                t--;
+                return -c / 2 * (t * (t - 2) - 1) + b;
+            }
+
+            function scrollLoop(currentTime) {
+                if (startTime === null) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const runPosition = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+                
+                window.scrollTo(0, runPosition);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(scrollLoop);
+                } else {
+                    window.scrollTo(0, targetPosition); // Lock precisely to landing coordinate [1]
+                }
+            }
+
+            requestAnimationFrame(scrollLoop);
+        });
+    </script>
 </body>
 </html>
