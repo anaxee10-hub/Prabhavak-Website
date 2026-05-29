@@ -136,6 +136,17 @@
         .animate-float-slow {
             animation: float-slow 6s ease-in-out infinite;
         }
+
+        /* Base styles for the popup reveal effects [2] */
+        .reveal-card {
+            opacity: 0;
+            transform: translateY(20px) scale(0.96);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal-card.active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
     </style>
 </head>
 <body class="text-slate-700 antialiased font-sans relative">
@@ -388,9 +399,9 @@
             <!-- Adjusted layout constraints horizontally (w-screen left/right offsets) to force edge-to-edge rendering [1] -->
             <div class="relative w-screen left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] aspect-[16/10] sm:aspect-[21/9] min-h-[280px] sm:min-h-[420px] overflow-hidden bg-slate-950">
                 <!-- Glowing ambient backlight -->
-                <div class="absolute w-[80%] h-[80%] bg-brand-cyan/10 blur-[60px] rounded-full z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="absolute w-[80%] h-[80%] bg-brand-cyan/10 blur-[50px] rounded-full z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                 
-                <!-- CORS-immune standard HTML5 looped video masked beautifully at the lower baseline [1] -->
+                <!-- CORS-immune standard HTML5 loop video masked beautifully at the lower baseline [1] -->
                 <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-10 select-none pointer-events-none fade-bottom-mask">
                     <source src="Anaxee video map.mp4" type="video/mp4">
                     <!-- Fallback placeholder represent loop state if file not present -->
@@ -406,9 +417,10 @@
 
         <!-- ================= SECTION 3.2: CREDIBILITY, WORKPLACE & HQ GRID ================= -->
         <section id="trust-area" class="py-20 bg-brand-surface border-b border-slate-100">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
                 
-                <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+                <!-- Main Trust Headers -->
+                <div class="text-center max-w-3xl mx-auto space-y-4">
                     <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest bg-brand-cyan/15 px-4 py-1.5 rounded-full">Trust & Legality</span>
                     <h2 class="text-3xl sm:text-4xl font-black text-brand-deep leading-relaxed">हमारी प्रामाणिकता और सुदृढ़ बुनियादी ढांचा</h2>
                     <p class="text-slate-500 text-sm sm:text-base">Anaxee का 150+ सदस्यों का ऑपरेशन्स केंद्र इंदौर में कार्यरत है। सरकारी अवार्ड्स और देशव्यापी विश्वसनीयता के साथ हम आपकी सुरक्षा के प्रति समर्पित हैं।</p>
@@ -487,6 +499,166 @@
 
                 </div>
 
+                <!-- ================= TESTIMONIAL & REVIEW GRID SUB-SECTION ================= -->
+                <!-- Fully responsive trust area [1] -->
+                <div class="space-y-12 pt-12 border-t border-slate-200/60">
+                    <div class="text-center max-w-2xl mx-auto space-y-3">
+                        <span class="text-xs font-bold text-brand-turquoise uppercase tracking-widest bg-brand-turquoise/15 px-4 py-1.5 rounded-full">Real Runner Stories</span>
+                        <h3 class="text-2xl sm:text-3xl font-black text-brand-deep">हमारे डिजिटल रनर्स की ज़ुबानी</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed">सुनिए हमारे प्रभावक का सीधा अनुभव और अन्य रनर्स की सच्ची समीक्षाएं।</p>
+                    </div>
+
+                    <!-- Dual Column: Aman Mathur Video Card + Shani Raj Verma Highlighted Card [1] -->
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                        
+                        <!-- Column 1: Aman Mathur Click-to-Play Video Card (lg:col-span-6) [1] -->
+                        <div class="lg:col-span-6 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+                            <div class="space-y-4">
+                                <!-- HTML5 Video Container configured to play only on click of central button [1] -->
+                                <div class="w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 relative border border-slate-100 shadow-premium">
+                                    <!-- Glow overlay inside container -->
+                                    <div class="absolute w-[60%] h-[60%] bg-brand-cyan/15 blur-[40px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                    
+                                    <!-- HTML5 Video elements with play button listener [1] -->
+                                    <video id="amanVideo" playsinline class="absolute inset-0 w-full h-full object-cover z-10">
+                                        <source src="Aman Mathur 8 MB.mp4" type="video/mp4">
+                                    </video>
+
+                                    <!-- Overlay play trigger wrapper (hidden once play clicked) [1] -->
+                                    <div id="video-overlay" class="absolute inset-0 z-20 flex flex-col justify-between p-4 bg-black/10 transition-opacity duration-300 pointer-events-auto">
+                                        <div class="flex items-center justify-between">
+                                            <span class="text-[9px] font-black uppercase tracking-wider bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full text-brand-cyan border border-brand-cyan/25">Video Testimony</span>
+                                        </div>
+                                        
+                                        <!-- Big Play Button Overlay [1] -->
+                                        <button id="play-btn" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/95 text-brand-deep flex items-center justify-center text-xl shadow-glow hover:scale-105 active:scale-95 transition-all duration-300 pointer-events-auto">
+                                            <i class="fa-solid fa-play ml-1"></i>
+                                        </button>
+                                        
+                                        <div class="h-4"></div> <!-- spacer -->
+                                    </div>
+                                </div>
+
+                                <!-- Separately Written Caption written outside the video card container [1] -->
+                                <div class="pt-2 text-left space-y-1">
+                                    <p class="font-extrabold text-base text-brand-deep">अमन माथुर <span class="text-xs font-bold text-slate-400">| फतेहपुर, उत्तर प्रदेश</span></p>
+                                    <p class="text-slate-500 text-sm leading-relaxed">"घर बैठे व्हाट्सएप से एक्स्ट्रा इनकम कमाई... मैं स्टडी के साथ-साथ इस प्रोजेक्ट में काम भी करता था, जिससे मेरा और मेरे परिवार का खर्चा भी निकल जाता है।" </p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Column 2: Shani Raj Verma Highlighted Review Card (lg:col-span-6) -->
+                        <!-- Designed to perfectly match the high-contrast aesthetic in your second reference image [1] -->
+                        <div class="lg:col-span-6 bg-white border-2 border-brand-cyan/30 rounded-3xl p-6 sm:p-8 shadow-island-shadow flex flex-col justify-between text-left relative overflow-hidden">
+                            <!-- Soft glowing edge light -->
+                            <div class="absolute -top-12 -right-12 w-24 h-24 bg-brand-cyan/10 blur-xl rounded-full"></div>
+                            
+                            <div class="space-y-6 z-10">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-amber-400 text-md flex gap-1">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-[10px] font-black uppercase tracking-wider text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/25 px-3 py-1 rounded-full flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full animate-ping"></span> Featured Review</span>
+                                </div>
+
+                                <div class="space-y-4 text-brand-deep font-bold text-sm sm:text-base leading-relaxed italic">
+                                    <p class="border-l-2 border-slate-200 pl-3">“मुझे खुद यकीन नहीं था कि मैं घर बैठे इतना कमा सकता हूँ। पर Anaxee के प्रभावक प्रोजेक्ट ने यह साबित कर दिया।”</p>
+                                    
+                                    <!-- High-Contrast Highlighted Core Payload Row matching the reference image [1] -->
+                                    <p class="pl-3">
+                                        "सिर्फ <span class="bg-brand-cyan/15 text-brand-deep font-black px-2 py-0.5 rounded border border-brand-cyan/20 inline-block my-1">6 महीने में मैंने ₹62,000 कमाए</span> — अपने mobile से, अपने social media से।" [1]
+                                    </p>
+                                    
+                                    <p class="pl-3">"कोई office नहीं। कोई fixed time नहीं। बस काम किया — और पैसे मिले।”</p>
+                                </div>
+                            </div>
+
+                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-4 z-10">
+                                <div class="w-11 h-11 rounded-full bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center text-slate-400 font-bold text-sm">
+                                    SV
+                                </div>
+                                <div>
+                                    <p class="font-extrabold text-sm sm:text-base text-brand-deep">Shani Raj Verma</p>
+                                    <p class="text-xs font-bold text-brand-cyan tracking-wider uppercase">Verified Prabhavak | Kaushambi, U.P.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- STAGGERED REVEAL ENTRY REVIEW CARDS GRID [2] -->
+                    <!-- Elements are integrated with the scroll- reveal popup class for smooth animations [2] -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
+                        
+                        <!-- Review 1 -->
+                        <div class="reveal-card bg-white border border-slate-200/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-island-shadow hover:border-brand-cyan/30 transition-all duration-300 text-left" style="transition-delay: 0ms;">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-amber-400 text-xs flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-[9px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 px-2.5 py-1 rounded-full border border-emerald-100/60 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Verified</span>
+                                </div>
+                                <p class="text-brand-deep font-semibold text-sm leading-relaxed italic">
+                                    "गृहणी होने के नाते बाहर जाना संभव नहीं था। अब दोपहर में घर के काम के बाद सिर्फ 2 घंटे फोन चलाकर हर हफ्ते बैंक खाते में सीधे पैसे मिल जाते हैं। कोई झूठ नहीं है।"
+                                </p>
+                            </div>
+                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-violet-50 text-violet-500 font-extrabold text-xs flex items-center justify-center">NS</div>
+                                <div>
+                                    <p class="font-extrabold text-xs text-brand-deep">नीता शर्मा (Neeta Sharma)</p>
+                                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Housewife | Indore, M.P.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 2 -->
+                        <div class="reveal-card bg-white border border-slate-200/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-island-shadow hover:border-brand-cyan/30 transition-all duration-300 text-left" style="transition-delay: 150ms;">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-amber-400 text-xs flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-[9px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 px-2.5 py-1 rounded-full border border-emerald-100/60 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Verified</span>
+                                </div>
+                                <p class="text-brand-deep font-semibold text-sm leading-relaxed italic">
+                                    "कॉलेज की पढ़ाई के साथ-साथ पॉकेट मनी कमाना बहुत आसान हो गया है। सबसे अच्छी बात ये है कि काम करने का कोई फिक्स टाइम नहीं है, जब समय मिलता है तब व्हाट्सएप ग्रुप में कैंपेन शेयर कर देता हूँ।"
+                                </p>
+                            </div>
+                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-sky-50 text-brand-cyan font-extrabold text-xs flex items-center justify-center">RV</div>
+                                <div>
+                                    <p class="font-extrabold text-xs text-brand-deep">राहुल वर्मा (Rahul Verma)</p>
+                                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Student | Prayagraj, U.P.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Review 3 -->
+                        <div class="reveal-card bg-white border border-slate-200/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-island-shadow hover:border-brand-cyan/30 transition-all duration-300 text-left" style="transition-delay: 300ms;">
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between">
+                                    <div class="text-amber-400 text-xs flex gap-0.5">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <span class="text-[9px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 px-2.5 py-1 rounded-full border border-emerald-100/60 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Verified</span>
+                                </div>
+                                <p class="text-brand-deep font-semibold text-sm leading-relaxed italic">
+                                    "मेरी अपनी छोटी दुकान है। दुकान पर ही रहते हुए मोबाइल से खाली समय में काम कर लेता हूँ। एक्स्ट्रा कमाई का इससे सुरक्षित और आसान जरिया मुझे नहीं मिला।"
+                                </p>
+                            </div>
+                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-amber-50 text-amber-500 font-extrabold text-xs flex items-center justify-center">SP</div>
+                                <div>
+                                    <p class="font-extrabold text-xs text-brand-deep">संजय पटेल (Sanjay Patel)</p>
+                                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Shopkeeper | Anand, Gujarat</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
         </section>
 
@@ -495,7 +667,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
                 <div class="text-center space-y-2">
                     <span class="text-xs font-bold text-brand-cyan uppercase tracking-widest bg-brand-cyan/15 px-4 py-1.5 rounded-full">Our Clients & Associates</span>
-                    <h3 class="text-2xl font-black text-brand-deep">जिन ब्रांड्स के कैंपेन हम चलाते हैं</h3>
+                    <span class="text-2xl font-black text-brand-deep">जिन ब्रांड्स के कैंपेन हम चलाते हैं</span>
                 </div>
             </div>
 
@@ -734,6 +906,41 @@
         const reachSection = document.getElementById('our-reach');
         if (reachSection) {
             counterObserver.observe(reachSection);
+        }
+
+        // ================= ROTATING SCROLL REVEAL INTERSECTION OBSERVER FOR REVIEWS =================
+        // Triggers the cascading popup entry reveal animation on low-tier review cards [2]
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active'); // Activates CSS transition parameters [2]
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, revealOptions);
+
+        document.querySelectorAll('.reveal-card').forEach(card => {
+            revealObserver.observe(card);
+        });
+
+        // ================= CLICK TO PLAY CONTROLLER FOR AMAN MATHUR TESTIMONIAL =================
+        // Restricts playback strictly to manual click of the central trigger button [1]
+        const playBtn = document.getElementById('play-btn');
+        const videoEl = document.getElementById('amanVideo');
+        const videoOverlay = document.getElementById('video-overlay');
+
+        if (playBtn && videoEl && videoOverlay) {
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Stop event bubbling
+                videoEl.play();
+                videoEl.controls = true; // Inject native interface controls on play [1]
+                videoOverlay.classList.add('hidden'); // Fully clear play overlays
+            });
         }
     </script>
 </body>
