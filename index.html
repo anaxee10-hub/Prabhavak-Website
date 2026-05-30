@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prabhavak by Anaxee | Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link class="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
@@ -146,15 +146,13 @@
             animation: beam-travel 5s cubic-bezier(0.2, 0.8, 0.2, 1) infinite;
         }
 
-        /* Base styles for the popup reveal effects */
-        .reveal-card {
-            opacity: 0;
-            transform: translateY(20px) scale(0.96);
-            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        /* Hide scrollbars cleanly across multiple engines */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        .reveal-card.active {
-            opacity: 1;
-            transform: translateY(0) scale(1);
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
         }
     </style>
 </head>
@@ -435,72 +433,82 @@
                 </div>
 
                 <!-- Bento-Style Trust Grid -->
+                <!-- Consolidated National Startup Award & MP Best Growth Award as matching side-by-side cards, followed by HQ card -->
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
                     
-                    <!-- Card 1: PM Modi videoconference feature (Left Span: 7 cols) -->
-                    <div class="lg:col-span-7 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+                    <!-- Card 1: National Startup Award (lg:col-span-6) -->
+                    <!-- Matches the layout of MP Best Growth Startup Award exactly -->
+                    <div class="lg:col-span-6 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between text-left">
                         <div class="space-y-4">
-                            <!-- Cleaned-up rounded video element container -->
                             <div class="rounded-2xl overflow-hidden bg-slate-100 relative">
-                                <img src="./30.jpg" alt="Govind Agrawal with PM Modi" class="w-full h-auto object-cover aspect-[16/10]" loading="lazy">
-                            </div>
-                            
-                            <!-- Relocated High-Contrast Caption block completely resolving the legibility issue -->
-                            <div class="pt-2">
-                                <div class="flex items-center gap-2 mb-3">
-                                    <span class="text-[10px] font-black uppercase tracking-wider bg-sky-50 text-brand-cyan px-2.5 py-1 rounded-full border border-sky-100/60">Startup India Recognition</span>
+                                <img src="./30.jpg" alt="Mr Govind Agrawal with PM Modi" class="w-full h-auto object-cover aspect-[16/10]" loading="lazy">
+                                
+                                <div class="absolute bottom-0 inset-x-0 bg-white/90 backdrop-blur-md p-4 flex items-center gap-4 border-t border-slate-200/50 z-20">
+                                    <img src="./3.jpg" alt="National Startup Awards Logo" class="h-10 sm:h-12 w-auto object-contain rounded" loading="lazy">
+                                    <div>
+                                        <p class="text-xs sm:text-sm font-black text-brand-deep leading-tight">Mr Govind Agrawal receiving National Startup Award</p>
+                                        <p class="text-[10px] text-slate-500 font-bold mt-0.5">Presented by Startup India & DPIIT</p>
+                                    </div>
                                 </div>
-                                <h3 class="text-lg font-black text-brand-deep leading-relaxed">Anaxee Founder Govind Agrawal in discussion with Hon'ble PM Narendra Modi</h3>
-                                <p class="text-slate-500 text-sm leading-relaxed mt-2">
-                                    Anaxee Founder Mr. Govind Agrawal during interactive videoconference with Hon'ble Prime Minister Narendra Modi. यह प्रमाण है हमारी राष्ट्रीय विश्वसनीयता का। Anaxee को राष्ट्रीय स्तर पर मान्यता प्राप्त startup होने का गौरव मिला है, जिसकी सीधी गवाही देश का शीर्ष नेतृत्व भी देता है।
+                            </div>
+
+                            <div class="space-y-2 pt-2">
+                                <span class="text-[10px] font-bold text-brand-cyan bg-sky-50 px-2.5 py-1 rounded-full uppercase tracking-wider">Government of India</span>
+                                <h4 class="font-bold text-brand-deep text-lg sm:text-xl leading-relaxed">National Startup Awards Winner</h4>
+                                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                                    डिपार्टमेंट फॉर प्रमोशन ऑफ इंडस्ट्री एंड इंटरनल ट्रेड (DPIIT) द्वारा प्रदान किया गया शीर्ष राष्ट्रीय स्टार्टअप पुरस्कार।
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Card 2: HQ Office & Workplace Masonry (Right Span: 5 cols) -->
-                    <div class="lg:col-span-5 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+                    <!-- Card 2: MP Best Growth Award (lg:col-span-6) -->
+                    <div class="lg:col-span-6 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between text-left">
                         <div class="space-y-4">
-                            <span class="text-xs font-bold text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-full uppercase tracking-wider">Indore Operations HQ</span>
-                            <h3 class="text-xl font-black text-brand-deep leading-relaxed">हमारा 15,000+ वर्ग फुट का मुख्यालय</h3>
-                            
-                            <!-- Mini Grid for office photos (30.jpg - 33.jpg) -->
-                            <div class="grid grid-cols-2 gap-3 pt-2">
-                                <div class="rounded-xl overflow-hidden border border-slate-100"><img src="./34.jpg" alt="Operations floor" class="w-full h-24 object-cover" loading="lazy"></div>
-                                <div class="rounded-xl overflow-hidden border border-slate-100"><img src="./31.jpg" alt="Team meeting" class="w-full h-24 object-cover" loading="lazy"></div>
-                                <div class="rounded-xl overflow-hidden border border-slate-100"><img src="./32.jpg" alt="Corporate setups" class="w-full h-24 object-cover" loading="lazy"></div>
-                                <div class="rounded-xl overflow-hidden border border-slate-100"><img src="./33.jpg" alt="Office desk space" class="w-full h-24 object-cover" loading="lazy"></div>
+                            <div class="rounded-2xl overflow-hidden bg-slate-100 relative">
+                                <img src="MP best startup Award photo.png" alt="Mr Govind Agrawal receiving MP Best Growth Startup Award" class="w-full h-auto object-cover aspect-[16/10]" loading="lazy">
+                                
+                                <div class="absolute bottom-0 inset-x-0 bg-white/90 backdrop-blur-md p-4 flex items-center gap-4 border-t border-slate-200/50 z-20">
+                                    <img src="./4.jpg" alt="MP Best Growth Award Logo" class="h-10 sm:h-12 w-auto object-contain rounded" loading="lazy">
+                                    <div>
+                                        <p class="text-xs sm:text-sm font-black text-brand-deep leading-tight">Mr Govind Agrawal receiving MP Best Growth Startup Award</p>
+                                        <p class="text-[10px] text-slate-500 font-bold mt-0.5">Presented by Government of Madhya Pradesh</p>
+                                    </div>
+                                </div>
                             </div>
 
-                            <p class="text-slate-500 text-xs sm:text-sm leading-relaxed mt-4">
-                                इंदौर (मध्य प्रदेश) स्थित Rafael Tower में कार्यरत हमारी 150+ हेल्पडेस्क और सपोर्ट टीम आपके कार्य सत्यापन और सुरक्षित वीकली पे-आउट की देखरेख करती है।
-                            </p>
-                        </div>
-                    </div>
-
-                    <!-- Row 2: Awards badges (Combined Span) -->
-                    <div class="lg:col-span-12 grid md:grid-cols-2 gap-6">
-                        <!-- Award 1 (3.jpg) -->
-                        <div class="bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-sm">
-                            <img src="./4.jpg" alt="MP Best Growth Startup Award" class="h-20 sm:h-24 w-auto object-contain shrink-0" loading="lazy">
-                            <div class="space-y-2">
+                            <div class="space-y-2 pt-2">
                                 <span class="text-[10px] font-bold text-brand-turquoise bg-teal-50 px-2.5 py-1 rounded-full uppercase tracking-wider">Growth & Scalability</span>
-                                <h4 class="font-bold text-brand-deep text-base sm:text-lg">MP Best Growth Startup Award 2026</h4>
-                                <p class="text-slate-500 text-xs leading-relaxed">
+                                <h4 class="font-bold text-brand-deep text-lg sm:text-xl leading-relaxed">MP Best Growth Startup Award 2026</h4>
+                                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
                                     मध्य प्रदेश के सर्वाधिक तेजी से बढ़ते हुए तकनीकी मंचों में प्रथम स्थान, जो प्रमाणित करता है हमारे देशव्यापी विस्तार को।
                                 </p>
                             </div>
                         </div>
+                    </div>
 
-                        <!-- Award 2 (4.jpg) -->
-                        <div class="bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 shadow-sm">
-                            <img src="./3.jpg" alt="National Startup Awards" class="h-20 sm:h-24 w-auto object-contain shrink-0" loading="lazy">
-                            <div class="space-y-2">
-                                <span class="text-[10px] font-bold text-brand-cyan bg-sky-50 px-2.5 py-1 rounded-full uppercase tracking-wider">Government of India</span>
-                                <h4 class="font-bold text-brand-deep text-base sm:text-lg">National Startup Awards Winner</h4>
-                                <p class="text-slate-500 text-xs leading-relaxed">
-                                    डिपार्टमेंट फॉर प्रमोशन ऑफ इंडस्ट्री एंड इंटरनल ट्रेड (DPIIT) द्वारा प्रदान किया गया शीर्ष राष्ट्रीय स्टार्टअप पुरस्कार।
+                    <!-- Card 3: HQ Office & Workplace Masonry (lg:col-span-12) -->
+                    <!-- Restructured spanning 12 columns for a clean, balanced layout on desktop -->
+                    <div class="lg:col-span-12 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between text-left">
+                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+                            <!-- Left Info Block -->
+                            <div class="lg:col-span-5 space-y-4">
+                                <span class="text-xs font-bold text-brand-cyan bg-brand-cyan/10 px-2.5 py-1 rounded-full uppercase tracking-wider">Indore Operations HQ</span>
+                                <h3 class="text-xl sm:text-2xl font-black text-brand-deep leading-relaxed">हमारा 15,000+ वर्ग फुट का मुख्यालय</h3>
+                                <p class="text-slate-500 text-xs sm:text-sm leading-relaxed">
+                                    इंदौर (मध्य प्रदेश) स्थित Rafael Tower में कार्यरत हमारी 150+ हेल्पडेस्क और सपोर्ट टीम आपके कार्य सत्यापन और सुरक्षित वीकली पे-आउट की देखरेख करती है।
                                 </p>
+                            </div>
+                            
+                            <!-- Right Media Block -->
+                            <div class="lg:col-span-7">
+                                <!-- Grid for office photos -->
+                                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                                    <div class="rounded-xl overflow-hidden border border-slate-100 shadow-sm"><img src="./34.jpg" alt="Operations floor" class="w-full h-24 sm:h-28 object-cover" loading="lazy"></div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-100 shadow-sm"><img src="./31.jpg" alt="Team meeting" class="w-full h-24 sm:h-28 object-cover" loading="lazy"></div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-100 shadow-sm"><img src="./32.jpg" alt="Corporate setups" class="w-full h-24 sm:h-28 object-cover" loading="lazy"></div>
+                                    <div class="rounded-xl overflow-hidden border border-slate-100 shadow-sm"><img src="./33.jpg" alt="Office desk space" class="w-full h-24 sm:h-28 object-cover" loading="lazy"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -508,7 +516,7 @@
                 </div>
 
                 <!-- ================= TESTIMONIAL & REVIEW GRID SUB-SECTION ================= -->
-                <!-- Fully responsive trust area [1] -->
+                <!-- Fully responsive trust area -->
                 <div class="space-y-12 pt-12 border-t border-slate-200/60">
                     <div class="text-center max-w-2xl mx-auto space-y-3">
                         <span class="text-xs font-bold text-brand-turquoise uppercase tracking-widest bg-brand-turquoise/15 px-4 py-1.5 rounded-full">Real Runner Stories</span>
@@ -516,32 +524,29 @@
                         <p class="text-slate-500 text-sm leading-relaxed">सुनिए हमारे प्रभावक का सीधा अनुभव और अन्य रनर्स की सच्ची समीक्षाएं।</p>
                     </div>
 
-                    <!-- Dual Column: Aman Mathur Video Card + Shani Raj Verma Highlighted Card [1] -->
-                    <!-- Slices the layout into two completely separate, highly focused independent columns on desktop [1] -->
+                    <!-- Dual Column Layout: Left Video and Right Integrated Swipeable Review Carousel -->
                     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                         
-                        <!-- Column 1: Aman Mathur Click-to-Play Video Card (lg:col-span-6) [1] -->
-                        <div class="lg:col-span-6 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
+                        <!-- Column 1: Aman Mathur Click-to-Play Video Card (lg:col-span-5) -->
+                        <div class="lg:col-span-5 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between">
                             <div class="space-y-4">
-                                <!-- HTML5 Video Container configured to play only on click of central button [1] -->
-                                <!-- Fits portrait vertical mode perfectly without clipping using 'object-contain' and 'bg-slate-950' [1] -->
+                                <!-- HTML5 Video Container configured to play only on click of central button -->
                                 <div class="w-full aspect-video rounded-2xl overflow-hidden bg-slate-950 relative border border-slate-100 shadow-premium">
                                     <!-- Glow overlay inside container -->
                                     <div class="absolute w-[60%] h-[60%] bg-brand-cyan/15 blur-[40px] rounded-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                                     
-                                    <!-- HTML5 Video elements with play button listener [1] -->
+                                    <!-- HTML5 Video elements with play button listener -->
                                     <video id="amanVideo" playsinline class="absolute inset-0 w-full h-full object-contain z-10 bg-slate-950">
                                         <source src="Aman Mathur 8 MB.mp4" type="video/mp4">
                                     </video>
 
-                                    <!-- Overlay play trigger wrapper (hidden once play clicked) [1] -->
-                                    <!-- Removed the 'LIVE' badging completely as requested [1] -->
+                                    <!-- Overlay play trigger wrapper (hidden once play clicked) -->
                                     <div id="video-overlay" class="absolute inset-0 z-20 flex flex-col justify-between p-4 bg-black/10 transition-opacity duration-300 pointer-events-auto">
                                         <div class="flex items-center justify-between">
                                             <span class="text-[9px] font-black uppercase tracking-wider bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full text-brand-cyan border border-brand-cyan/25">Video Testimony</span>
                                         </div>
                                         
-                                        <!-- Big Play Button Overlay [1] -->
+                                        <!-- Big Play Button Overlay -->
                                         <button id="play-btn" class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/95 text-brand-deep flex items-center justify-center text-xl shadow-glow hover:scale-105 active:scale-95 transition-all duration-300 pointer-events-auto">
                                             <i class="fa-solid fa-play ml-1"></i>
                                         </button>
@@ -550,8 +555,7 @@
                                     </div>
                                 </div>
 
-                                <!-- Separately Written Caption written outside the video card container [1] -->
-                                <!-- No clunky text overlapping the video player UI [1] -->
+                                <!-- Separately Written Caption written outside the video card container -->
                                 <div class="pt-2 text-left space-y-1">
                                     <p class="font-extrabold text-base text-brand-deep">अमन माथुर <span class="text-xs font-bold text-slate-400">| फतेहपुर, उत्तर प्रदेश</span></p>
                                     <p class="text-slate-500 text-sm leading-relaxed">"घर बैठे व्हाट्सएप से एक्स्ट्रा इनकम कमाई... मैं स्टडी के साथ-साथ इस प्रोजेक्ट में काम भी करता था, जिससे मेरा और मेरे परिवार का खर्चा भी निकल जाता है।"</p>
@@ -559,113 +563,153 @@
                             </div>
                         </div>
 
-                        <!-- Column 2: Shani Raj Verma Highlighted Review Card (lg:col-span-6) [1] -->
-                        <!-- Isolated into its own independent, high-contrast, beautiful featured card [1] -->
-                        <div class="lg:col-span-6 bg-white border-2 border-brand-cyan/30 rounded-3xl p-6 sm:p-8 shadow-island-shadow flex flex-col justify-between text-left relative overflow-hidden">
-                            <!-- Soft glowing edge light -->
-                            <div class="absolute -top-12 -right-12 w-24 h-24 bg-brand-cyan/10 blur-xl rounded-full"></div>
+                        <!-- Column 2: Swiper Carousel of Text Reviews (lg:col-span-7) -->
+                        <div class="lg:col-span-7 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between relative overflow-hidden">
                             
-                            <div class="space-y-6 z-10">
-                                <div class="flex items-center justify-between">
-                                    <div class="text-amber-400 text-md flex gap-1">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                    </div>
-                                    <span class="text-[10px] font-black uppercase tracking-wider text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/25 px-3 py-1 rounded-full flex items-center gap-1.5"><span class="w-1.5 h-1.5 bg-brand-cyan rounded-full animate-ping"></span> Featured Review</span>
+                            <!-- Header elements for swiper nav controls -->
+                            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-6">
+                                <span class="text-[11px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 px-3 py-1 rounded-full flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 bg-brand-turquoise rounded-full animate-pulse"></span>
+                                    Runner Testimonials
+                                </span>
+                                <!-- Swipe Navigation Arrows -->
+                                <div class="flex gap-2">
+                                    <button id="prev-slide" class="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 hover:text-brand-deep hover:border-slate-300 active:scale-95 transition-all animate-none" aria-label="Previous Slide">
+                                        <i class="fa-solid fa-chevron-left text-xs"></i>
+                                    </button>
+                                    <button id="next-slide" class="w-9 h-9 rounded-full border border-slate-200 flex items-center justify-center text-slate-500 hover:bg-slate-50 hover:text-brand-deep hover:border-slate-300 active:scale-95 transition-all animate-none" aria-label="Next Slide">
+                                        <i class="fa-solid fa-chevron-right text-xs"></i>
+                                    </button>
                                 </div>
+                            </div>
 
-                                <div class="space-y-4 text-brand-deep font-bold text-sm sm:text-base leading-relaxed italic">
-                                    <p class="border-l-2 border-slate-200 pl-3">“मुझे खुद यकीन नहीं था कि मैं घर बैठे इतना कमा सकता हूँ। पर Anaxee के प्रभावक प्रोजेक्ट ने यह साबित कर दिया।”</p>
+                            <!-- Swiper container window -->
+                            <div id="swiper-container" class="relative overflow-hidden w-full flex-grow flex flex-col justify-center">
+                                <div id="swiper-track" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar cursor-grab active:cursor-grabbing pb-4" style="scrollbar-width: none; -ms-overflow-style: none;">
                                     
-                                    <!-- High-Contrast Highlighted Core Payload Row matching the reference image -->
-                                    <p class="pl-3">
-                                        "सिर्फ <span class="bg-brand-cyan/15 text-brand-deep font-black px-2 py-0.5 rounded border border-brand-cyan/20 inline-block my-1">6 महीने में मैंने ₹62,000 कमाए</span> — अपने mobile से, अपने social media से।"
-                                    </p>
-                                    
-                                    <p class="pl-3">"कोई office नहीं। कोई fixed time नहीं। बस काम किया — और पैसे मिले।”</p>
-                                </div>
-                            </div>
-
-                            <!-- Footer user profile matching the second reference image perfectly [1] -->
-                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-4 z-10">
-                                <div class="w-11 h-11 rounded-full bg-slate-100 border border-slate-200 overflow-hidden flex items-center justify-center text-slate-400 font-bold text-sm">
-                                    SV
-                                </div>
-                                <div>
-                                    <p class="font-extrabold text-sm sm:text-base text-brand-deep">Shani Raj Verma</p>
-                                    <p class="text-xs font-bold text-brand-cyan tracking-wider uppercase">Verified Prabhavak | Kaushambi, U.P.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <!-- STAGGERED REVEAL ENTRY REVIEW CARDS GRID [2] -->
-                    <!-- Elements are integrated with the scroll- reveal popup class for smooth animations [2] -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-                        
-                        <!-- Review 1 -->
-                        <div class="reveal-card bg-white border border-slate-200/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-island-shadow hover:border-brand-cyan/30 transition-all duration-300 text-left" style="transition-delay: 0ms;">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div class="text-amber-400 text-xs flex gap-0.5">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <!-- Slide 1: Shani Raj Verma (Featured Review Style) -->
+                                    <div class="w-full shrink-0 snap-start flex flex-col justify-between text-left">
+                                        <div class="space-y-6">
+                                            <div class="flex items-center justify-between">
+                                                <div class="text-amber-400 text-sm flex gap-1">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="text-[10px] font-black uppercase tracking-wider text-brand-cyan bg-brand-cyan/10 border border-brand-cyan/25 px-3 py-1 rounded-full">
+                                                    Featured Review
+                                                </span>
+                                            </div>
+                                            <div class="space-y-4 text-brand-deep font-bold text-sm sm:text-base leading-relaxed italic">
+                                                <p class="border-l-2 border-slate-200 pl-3">“मुझे खुद यकीन नहीं था कि मैं घर बैठे इतना कमा सकता हूँ। पर Anaxee के प्रभावक प्रोजेक्ट ने यह साबित कर दिया।”</p>
+                                                <p class="pl-3">
+                                                    "सिर्फ <span class="bg-brand-cyan/15 text-brand-deep font-black px-2 py-0.5 rounded border border-brand-cyan/20 inline-block my-1">6 महीने में मैंने ₹62,000 कमाए</span> — अपने mobile से, अपने social media से।"
+                                                </p>
+                                                <p class="pl-3">"कोई office नहीं। कोई fixed time नहीं। बस काम किया — और पैसे मिले।”</p>
+                                            </div>
+                                        </div>
+                                        <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-4">
+                                            <div class="w-11 h-11 rounded-full bg-sky-50 border border-brand-cyan/25 overflow-hidden flex items-center justify-center text-brand-cyan font-bold text-sm shrink-0">
+                                                SV
+                                            </div>
+                                            <div>
+                                                <p class="font-extrabold text-sm sm:text-base text-brand-deep">Shani Raj Verma</p>
+                                                <p class="text-xs font-bold text-brand-cyan tracking-wider uppercase">Verified Prabhavak | Kaushambi, U.P.</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="text-[9px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 px-2.5 py-1 rounded-full border border-emerald-100/60 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Verified</span>
-                                </div>
-                                <p class="text-brand-deep font-semibold text-sm leading-relaxed italic">
-                                    "गृहणी होने के नाते बाहर जाना संभव नहीं था। अब दोपहर में घर के काम के बाद सिर्फ 2 घंटे फोन चलाकर हर हफ्ते बैंक खाते में सीधे पैसे मिल जाते हैं। कोई झूठ नहीं है।"
-                                </p>
-                            </div>
-                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-violet-50 text-violet-500 font-extrabold text-xs flex items-center justify-center">NS</div>
-                                <div>
-                                    <p class="font-extrabold text-xs text-brand-deep">नीता शर्मा (Neeta Sharma)</p>
-                                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Housewife | Indore, M.P.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Review 2 -->
-                        <div class="reveal-card bg-white border border-slate-200/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-island-shadow hover:border-brand-cyan/30 transition-all duration-300 text-left" style="transition-delay: 150ms;">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div class="text-amber-400 text-xs flex gap-0.5">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <!-- Slide 2: Neeta Sharma (Verified Review Style) -->
+                                    <div class="w-full shrink-0 snap-start flex flex-col justify-between text-left">
+                                        <div class="space-y-6">
+                                            <div class="flex items-center justify-between">
+                                                <div class="text-amber-400 text-sm flex gap-1">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="text-[10px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 border border-emerald-100/60 px-3 py-1 rounded-full">
+                                                    Verified Review
+                                                </span>
+                                            </div>
+                                            <div class="space-y-4 text-brand-deep font-bold text-sm sm:text-base leading-relaxed italic">
+                                                <p class="border-l-2 border-slate-200 pl-3">
+                                                    "गृहणी होने के नाते बाहर जाना संभव नहीं था। अब दोपहर में घर के काम के बाद सिर्फ 2 घंटे फोन चलाकर हर हफ्ते बैंक खाते में सीधे पैसे मिल जाते हैं। कोई झूठ नहीं है।"
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-4">
+                                            <div class="w-11 h-11 rounded-full bg-violet-50 text-violet-500 font-extrabold text-sm flex items-center justify-center shrink-0">
+                                                NS
+                                            </div>
+                                            <div>
+                                                <p class="font-extrabold text-sm sm:text-base text-brand-deep">नीता शर्मा (Neeta Sharma)</p>
+                                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Housewife | Indore, M.P.</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="text-[9px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 px-2.5 py-1 rounded-full border border-emerald-100/60 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Verified</span>
-                                </div>
-                                <p class="text-brand-deep font-semibold text-sm leading-relaxed italic">
-                                    "कॉलेज की पढ़ाई के साथ-साथ पॉकेट मनी कमाना बहुत आसान हो गया है। सबसे अच्छी बात ये है कि काम करने का कोई फिक्स टाइम नहीं है, जब समय मिलता है तब व्हाट्सएप ग्रुप में कैंपेन शेयर कर देता हूँ।"
-                                </p>
-                            </div>
-                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-sky-50 text-brand-cyan font-extrabold text-xs flex items-center justify-center">RV</div>
-                                <div>
-                                    <p class="font-extrabold text-xs text-brand-deep">राहुल वर्मा (Rahul Verma)</p>
-                                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Student | Prayagraj, U.P.</p>
-                                </div>
-                            </div>
-                        </div>
 
-                        <!-- Review 3 -->
-                        <div class="reveal-card bg-white border border-slate-200/60 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-sm hover:shadow-island-shadow hover:border-brand-cyan/30 transition-all duration-300 text-left" style="transition-delay: 300ms;">
-                            <div class="space-y-4">
-                                <div class="flex items-center justify-between">
-                                    <div class="text-amber-400 text-xs flex gap-0.5">
-                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    <!-- Slide 3: Rahul Verma (Verified Review Style) -->
+                                    <div class="w-full shrink-0 snap-start flex flex-col justify-between text-left">
+                                        <div class="space-y-6">
+                                            <div class="flex items-center justify-between">
+                                                <div class="text-amber-400 text-sm flex gap-1">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="text-[10px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 border border-emerald-100/60 px-3 py-1 rounded-full">
+                                                    Verified Review
+                                                </span>
+                                            </div>
+                                            <div class="space-y-4 text-brand-deep font-bold text-sm sm:text-base leading-relaxed italic">
+                                                <p class="border-l-2 border-slate-200 pl-3">
+                                                    "कॉलेज की पढ़ाई के साथ-साथ पॉकेट मनी कमाना बहुत आसान हो गया है। सबसे अच्छी बात ये है कि काम करने का कोई फिक्स टाइम नहीं है, जब समय मिलता है तब व्हाट्सएप ग्रुप में कैंपेन शेयर कर देता हूँ।"
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-4">
+                                            <div class="w-11 h-11 rounded-full bg-sky-50 text-brand-cyan font-extrabold text-sm flex items-center justify-center shrink-0">
+                                                RV
+                                            </div>
+                                            <div>
+                                                <p class="font-extrabold text-sm sm:text-base text-brand-deep">राहुल वर्मा (Rahul Verma)</p>
+                                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Student | Prayagraj, U.P.</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="text-[9px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 px-2.5 py-1 rounded-full border border-emerald-100/60 flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Verified</span>
+
+                                    <!-- Slide 4: Sanjay Patel (Verified Review Style) -->
+                                    <div class="w-full shrink-0 snap-start flex flex-col justify-between text-left">
+                                        <div class="space-y-6">
+                                            <div class="flex items-center justify-between">
+                                                <div class="text-amber-400 text-sm flex gap-1">
+                                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                                </div>
+                                                <span class="text-[10px] font-black uppercase tracking-wider text-brand-turquoise bg-teal-50 border border-emerald-100/60 px-3 py-1 rounded-full">
+                                                    Verified Review
+                                                </span>
+                                            </div>
+                                            <div class="space-y-4 text-brand-deep font-bold text-sm sm:text-base leading-relaxed italic">
+                                                <p class="border-l-2 border-slate-200 pl-3">
+                                                    "मेरी अपनी छोटी दुकान है। दुकान पर ही रहते हुए मोबाइल से खाली समय में काम कर लेता हूँ। एक्स्ट्रा कमाई का इससे सुरक्षित और आसान जरिया मुझे नहीं मिला।"
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-4">
+                                            <div class="w-11 h-11 rounded-full bg-amber-50 text-amber-500 font-extrabold text-sm flex items-center justify-center shrink-0">
+                                                SP
+                                            </div>
+                                            <div>
+                                                <p class="font-extrabold text-xs sm:text-base text-brand-deep">संजय पटेल (Sanjay Patel)</p>
+                                                <p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Shopkeeper | Anand, Gujarat</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                                <p class="text-brand-deep font-semibold text-sm leading-relaxed italic">
-                                    "मेरी अपनी छोटी दुकान है। दुकान पर ही रहते हुए मोबाइल से खाली समय में काम कर लेता हूँ। एक्स्ट्रा कमाई का इससे सुरक्षित और आसान जरिया मुझे नहीं मिला।"
-                                </p>
                             </div>
-                            <div class="border-t border-slate-100 pt-4 mt-6 flex items-center gap-3">
-                                <div class="w-8 h-8 rounded-full bg-amber-50 text-amber-500 font-extrabold text-xs flex items-center justify-center">SP</div>
-                                <div>
-                                    <p class="font-extrabold text-xs text-brand-deep">संजय पटेल (Sanjay Patel)</p>
-                                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Shopkeeper | Anand, Gujarat</p>
-                                </div>
+
+                            <!-- Pagination Dots Indicator Container -->
+                            <div class="flex justify-center gap-2 mt-4 pt-2 border-t border-slate-100/60">
+                                <span class="swiper-dot w-6 h-1.5 rounded-full bg-brand-cyan transition-all duration-300"></span>
+                                <span class="swiper-dot w-2 h-1.5 rounded-full bg-slate-200 transition-all duration-300"></span>
+                                <span class="swiper-dot w-2 h-1.5 rounded-full bg-slate-200 transition-all duration-300"></span>
+                                <span class="swiper-dot w-2 h-1.5 rounded-full bg-slate-200 transition-all duration-300"></span>
                             </div>
                         </div>
 
@@ -921,26 +965,6 @@
             counterObserver.observe(reachSection);
         }
 
-        // ================= ROTATING SCROLL REVEAL INTERSECTION OBSERVER FOR REVIEWS =================
-        // Triggers the cascading popup entry reveal animation on low-tier review cards [2]
-        const revealOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('active'); // Activates CSS transition parameters [2]
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, revealOptions);
-
-        document.querySelectorAll('.reveal-card').forEach(card => {
-            revealObserver.observe(card);
-        });
-
         // ================= CLICK TO PLAY CONTROLLER FOR AMAN MATHUR TESTIMONIAL =================
         // Restricts playback strictly to manual click of the central trigger button [1]
         // Triggers programmatic fullscreen request on play as requested [1]
@@ -971,6 +995,131 @@
                 }
             });
         }
+
+        // ================= TESTIMONIAL SWIPER SYSTEM WITH AUTOPLAY & MANUAL DRAG/CLICK CONTROLS =================
+        const track = document.getElementById('swiper-track');
+        const prevBtn = document.getElementById('prev-slide');
+        const nextBtn = document.getElementById('next-slide');
+        const dots = document.querySelectorAll('.swiper-dot');
+        let currentIndex = 0;
+        const totalSlides = dots.length;
+        let autoplayTimer = null;
+
+        function updateSlider() {
+            if (!track) return;
+            const slideWidth = track.clientWidth;
+            track.scrollTo({
+                left: currentIndex * slideWidth,
+                behavior: 'smooth'
+            });
+            updateDots();
+        }
+
+        function updateDots() {
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('bg-brand-cyan', 'w-6');
+                    dot.classList.remove('bg-slate-200', 'w-2');
+                } else {
+                    dot.classList.add('bg-slate-200', 'w-2');
+                    dot.classList.remove('bg-brand-cyan', 'w-6');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+            updateSlider();
+        }
+
+        function startAutoplay() {
+            stopAutoplay();
+            autoplayTimer = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoplay() {
+            if (autoplayTimer) {
+                clearInterval(autoplayTimer);
+            }
+        }
+
+        // Dynamic click events for controls
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => {
+                nextSlide();
+                startAutoplay(); // Reset interval countdown on manual interaction
+            });
+        }
+
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => {
+                prevSlide();
+                startAutoplay(); // Reset interval countdown on manual interaction
+            });
+        }
+
+        // Sync swipe indicator dot position during touch / swipe gestures
+        if (track) {
+            track.addEventListener('scroll', () => {
+                const slideWidth = track.clientWidth;
+                if (slideWidth > 0) {
+                    const newIndex = Math.round(track.scrollLeft / slideWidth);
+                    if (newIndex !== currentIndex && newIndex >= 0 && newIndex < totalSlides) {
+                        currentIndex = newIndex;
+                        updateDots();
+                    }
+                }
+            });
+        }
+
+        // Mouse Drag to Scroll Gesture implementation for non-touch desktop layouts
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        if (track) {
+            track.addEventListener('mousedown', (e) => {
+                isDown = true;
+                track.classList.add('active');
+                startX = e.pageX - track.offsetLeft;
+                scrollLeft = track.scrollLeft;
+                stopAutoplay();
+            });
+
+            track.addEventListener('mouseleave', () => {
+                isDown = false;
+                startAutoplay();
+            });
+
+            track.addEventListener('mouseup', () => {
+                isDown = false;
+                startAutoplay();
+            });
+
+            track.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - track.offsetLeft;
+                const walk = (x - startX) * 1.5; // Drag sensitivity multiplier
+                track.scrollLeft = scrollLeft - walk;
+            });
+        }
+
+        // Autoplay controller hovering hooks
+        const swiperContainer = document.getElementById('swiper-container');
+        if (swiperContainer) {
+            swiperContainer.addEventListener('mouseenter', stopAutoplay);
+            swiperContainer.addEventListener('mouseleave', startAutoplay);
+        }
+
+        // Initialize Slider State
+        updateDots();
+        startAutoplay();
     </script>
 </body>
 </html>
