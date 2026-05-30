@@ -227,7 +227,7 @@
                         <div class="absolute inset-0 z-30 pointer-events-none overflow-visible w-full h-full">
 
                             <!-- 1. WhatsApp (Bottom-Left) -->
-                            <div class="absolute bottom-[30%] left-[2%] sm:left-[8%] lg:left-[5%] pointer-events-auto anim-float-wa social-3d-card">
+                            <div class="absolute bottom-[18%] left-[2%] sm:left-[8%] lg:left-[5%] pointer-events-auto anim-float-wa social-3d-card">
                                 <div class="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-emerald-400 to-green-600 rounded-2xl flex items-center justify-center text-white text-2xl sm:text-3xl shadow-[0_10px_20 text-emerald-500 bg-emerald-50, _inset_0_-4px_8px_rgba(0,0,0,0.2)] border-b-4 border-green-700">
                                     <i class="fa-brands fa-whatsapp"></i>
                                 </div>
@@ -437,18 +437,20 @@
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
                     
                     <!-- Card 1: National Startup Award (lg:col-span-6) -->
-                    <!-- Matches the layout of MP Best Growth Startup Award exactly -->
+                    <!-- Matches the layout of MP Best Growth Startup Award exactly, with presentation info positioned cleanly below the image -->
                     <div class="lg:col-span-6 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between text-left">
                         <div class="space-y-4">
-                            <div class="rounded-2xl overflow-hidden bg-slate-100 relative">
-                                <img src="./30.jpg" alt="Mr Govind Agrawal with PM Modi" class="w-full h-auto object-cover aspect-[16/10]" loading="lazy">
-                                
-                                <div class="absolute bottom-0 inset-x-0 bg-white/90 backdrop-blur-md p-4 flex items-center gap-4 border-t border-slate-200/50 z-20">
-                                    <img src="./3.jpg" alt="National Startup Awards Logo" class="h-10 sm:h-12 w-auto object-contain rounded" loading="lazy">
-                                    <div>
-                                        <p class="text-xs sm:text-sm font-black text-brand-deep leading-tight">Mr Govind Agrawal receiving National Startup Award</p>
-                                        <p class="text-[10px] text-slate-500 font-bold mt-0.5">Presented by Startup India & DPIIT</p>
-                                    </div>
+                            <!-- Image Container (Fully visible, no cropping, scaling naturally to preserve the full frame) -->
+                            <div class="rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
+                                <img src="./30.jpg" alt="Mr Govind Agrawal with PM Modi" class="w-full h-auto block" loading="lazy">
+                            </div>
+                            
+                            <!-- Shifted Content Row (Positioned underneath image with subtle gray background carding) -->
+                            <div class="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center gap-4">
+                                <img src="./3.jpg" alt="National Startup Awards Logo" class="h-10 sm:h-12 w-auto object-contain rounded" loading="lazy">
+                                <div>
+                                    <p class="text-xs sm:text-sm font-black text-brand-deep leading-tight">Mr Govind Agrawal receiving National Startup Award</p>
+                                    <p class="text-[10px] text-slate-500 font-bold mt-0.5">Presented by Startup India & DPIIT</p>
                                 </div>
                             </div>
 
@@ -463,17 +465,20 @@
                     </div>
 
                     <!-- Card 2: MP Best Growth Award (lg:col-span-6) -->
+                    <!-- Matches the layout above with presentation info positioned cleanly below the image -->
                     <div class="lg:col-span-6 bg-white border border-slate-200/60 rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col justify-between text-left">
                         <div class="space-y-4">
-                            <div class="rounded-2xl overflow-hidden bg-slate-100 relative">
-                                <img src="MP best startup Award photo.png" alt="Mr Govind Agrawal receiving MP Best Growth Startup Award" class="w-full h-auto object-cover aspect-[16/10]" loading="lazy">
-                                
-                                <div class="absolute bottom-0 inset-x-0 bg-white/90 backdrop-blur-md p-4 flex items-center gap-4 border-t border-slate-200/50 z-20">
-                                    <img src="./4.jpg" alt="MP Best Growth Award Logo" class="h-10 sm:h-12 w-auto object-contain rounded" loading="lazy">
-                                    <div>
-                                        <p class="text-xs sm:text-sm font-black text-brand-deep leading-tight">Mr Govind Agrawal receiving MP Best Growth Startup Award</p>
-                                        <p class="text-[10px] text-slate-500 font-bold mt-0.5">Presented by Government of Madhya Pradesh</p>
-                                    </div>
+                            <!-- Image Container (Fully visible, no cropping, scaling naturally to preserve the full frame) -->
+                            <div class="rounded-2xl overflow-hidden bg-slate-100 border border-slate-100">
+                                <img src="MP best startup Award photo.png" alt="Mr Govind Agrawal receiving MP Best Growth Startup Award" class="w-full h-auto block" loading="lazy">
+                            </div>
+                            
+                            <!-- Shifted Content Row (Positioned underneath image with subtle gray background carding) -->
+                            <div class="bg-slate-50 border border-slate-100 p-4 rounded-2xl flex items-center gap-4">
+                                <img src="./4.jpg" alt="MP Best Growth Award Logo" class="h-10 sm:h-12 w-auto object-contain rounded" loading="lazy">
+                                <div>
+                                    <p class="text-xs sm:text-sm font-black text-brand-deep leading-tight">Mr Govind Agrawal receiving MP Best Growth Startup Award</p>
+                                    <p class="text-[10px] text-slate-500 font-bold mt-0.5">Presented by Government of Madhya Pradesh</p>
                                 </div>
                             </div>
 
@@ -1037,6 +1042,7 @@
             updateSlider();
         }
 
+        // Autoplay functions
         function startAutoplay() {
             stopAutoplay();
             autoplayTimer = setInterval(nextSlide, 5000);
